@@ -1,0 +1,80 @@
+@import "styles/variables/index";
+@import "styles/mixins";
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-size: 0;
+}
+
+.calendars {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  width: max-content;
+  background-color: color(white);
+  border-radius: 0.8rem;
+  overflow: hidden;
+  box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.15);
+}
+
+.calendarsRight {
+  right: 0;
+  left: auto;
+}
+
+.calendarsOpen {
+  display: grid;
+  grid-template-columns: repeat(2, var(--calendar-size));
+
+  .dateRangeStart {
+    position: relative;
+    border-top-left-radius: 0.8rem;
+    border-bottom-left-radius: 0.8rem;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background-color: color(lightBlue);
+    }
+
+    :global {
+      .react-datepicker__day--wrapper {
+        position: relative;
+        z-index: 2;
+      }
+    }
+  }
+
+  .dateRangeEnd {
+    position: relative;
+    color: color(darkGray);
+    background-color: color(white);
+    border-top-right-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
+
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background-color: color(lightBlue);
+    }
+
+    :global {
+      .react-datepicker__day--wrapper {
+        position: relative;
+        z-index: 2;
+      }
+    }
+  }
+}

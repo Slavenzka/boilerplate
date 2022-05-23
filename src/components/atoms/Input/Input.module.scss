@@ -1,0 +1,150 @@
+@import "styles/mixins";
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  transition-duration: $transitionDuration;
+  transition-property: color;
+
+  .labelNoMargin {
+    margin-bottom: 0;
+  }
+}
+
+.input {
+  width: 100%;
+  resize: none;
+  transition-duration: $transitionDuration;
+  transition-property: color, background-color, border-color;
+}
+
+.inputCalendar {
+  padding-right: 4rem;
+}
+
+.inputHidden {
+  @include visuallyHidden;
+}
+
+.error {
+  position: absolute;
+  bottom: -2rem;
+}
+
+.iconSearch {
+  position: absolute;
+  top: calc(50% - var(--icon-search-size) / 2);
+  left: 0.5rem;
+  width: var(--icon-search-size);
+}
+
+.iconCalendar {
+  position: absolute;
+  bottom: 0;
+  right: 0.5rem;
+  width: 2rem;
+  fill: green;
+}
+
+.checkboxDefault {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    width: 2.1rem;
+    height: 2.1rem;
+    background-color: color(white);
+    border: 1px solid color(barelyVisibleGray);
+    border-radius: 0.4rem;
+    transition-duration: $transitionDuration;
+    transition-property: border-color;
+  }
+
+  &:hover {
+    &::before {
+      border-color: color(black)
+    }
+  }
+}
+
+.checkboxDefaultChecked {
+}
+
+.iconCheck {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  width: 1.2rem;
+  stroke: color(black);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.wrapperSearch {
+  --icon-search-size: 1.5rem;
+
+  .input {
+    padding-left: calc(1rem + var(--icon-search-size));
+  }
+}
+
+.wrapperUnderlined {
+  .input {
+    padding: 1.5rem 5rem 1.5rem 2rem;
+    height: auto;
+    border: none;
+    border-bottom: 1px solid color(black);
+    border-radius: 0;
+  }
+
+  &.wrapperError {
+    color: red;
+
+    .input {
+      border-color: red;
+    }
+
+    .iconVisibility {
+      fill: red;
+    }
+  }
+}
+
+.buttonPassword {
+  position: absolute;
+  bottom: 1.4rem;
+  right: 2rem;
+  z-index: 1;
+}
+
+.iconVisibility {
+  width: 2rem;
+  fill: color(darkGray);
+  opacity: 0.5;
+  transition-duration: $transitionDuration;
+  transition-property: fill, opacity;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.multiValueFilter {
+  input {
+    padding: 0 1.4rem;
+    height: 4rem;
+    background-color: color(white);
+    border: 1px solid color(white);
+    border-radius: 1rem;
+  }
+}
+
+.inputError {
+
+}

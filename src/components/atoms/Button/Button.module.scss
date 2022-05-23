@@ -1,0 +1,228 @@
+@import "styles/mixins";
+@import "styles/variables/index";
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.buttonHeightSmall {
+  padding: 0 2rem;
+  height: var(--button-height-small);
+  border-radius: 1.75rem;
+
+
+  &.buttonLoading {
+    .spinner {
+      position: absolute;
+      top: calc(50% - 2rem / 2);
+      right: 0.5rem;
+      width: 2rem;
+      stroke: color(white);
+    }
+  }
+}
+
+.buttonHeightTiny {
+  padding: 0 1.5rem;
+  height: var(--button-height-tiny);
+  border-radius: 1.5rem;
+
+
+  &.buttonLoading {
+    .spinner {
+      position: absolute;
+      top: calc(50% - 2rem / 2);
+      right: 0.5rem;
+      width: 2rem;
+      stroke: color(white);
+    }
+  }
+}
+
+.buttonHeightRegular {
+  height: var(--button-height-regular);
+}
+
+.buttonHeightLarge {
+  padding: 0 5rem;
+  height: var(--button-height-large);
+  border-radius: 2.75rem;
+
+  &.buttonLoading {
+    .spinner {
+      position: absolute;
+      top: calc(50% - 3rem / 2);
+      right: 1rem;
+      width: 3rem;
+      stroke: color(white);
+    }
+  }
+}
+
+.buttonHeightAuto {
+  height: auto;
+}
+
+.buttonLink {
+  font-size: 1.2rem;
+  color: blue;
+}
+
+.buttonDark {
+  background-color: color(black);
+
+  &.buttonHeightTiny {
+  }
+
+  &.buttonBordered {
+    color: color(black);
+    background-color: transparent;
+    border: 1px solid color(black);
+  }
+}
+
+.buttonGray {
+  background-color: color(darkGray);
+
+  &.buttonHeightTiny {
+  }
+}
+
+.buttonIconSimple {
+  position: relative;
+  width: 2.1rem;
+  height: 2.1rem;
+  font-size: 0;
+
+  &:hover {
+    .icon,
+    & > * {
+      fill: color(darkGray);
+      opacity: 0.6;
+      transition-duration: $transitionDuration;
+      transition-property: fill, opacity;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -0.5rem;
+    left: -0.5rem;
+    width: calc(100% + 1rem);
+    height: calc(100% + 1rem);
+  }
+
+  & > * {
+    position: relative;
+  }
+
+  .icon {
+    fill: lightGray;
+    transition-duration: $transitionDuration;
+    transition-property: fill, opacity;
+  }
+}
+
+.buttonIconDecorated {
+  padding: 0.7rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: lightgrey;
+  border-radius: 50%;
+
+
+  .icon {
+    fill: black;
+    transition-duration: $transitionDuration;
+    transition-property: fill;
+  }
+}
+
+.icon {
+  width: 100%;
+}
+
+.buttonDisabled {
+  pointer-events: none;
+}
+
+.buttonLoading {
+  position: relative;
+  pointer-events: none;
+}
+
+.singleValueFilter {
+  padding: 0 1.6rem;
+  justify-content: space-between;
+  background-color: color(blue);
+  box-shadow: 0 0 0 0.1rem transparent;
+  transition-duration: $transitionDuration;
+  transition-property: color, background-color, box-shadow, opacity;
+
+  &:hover {
+    box-shadow: 0 0 0 0.1rem color(black);
+  }
+}
+
+.counter {
+  transition-duration: $transitionDuration;
+  transition-property: color;
+}
+
+.singleValueFilterActive {
+  color: color(white);
+  background-color: color(black);
+
+
+  &:hover {
+    box-shadow: 0 0 0 0.1rem color(black);
+  }
+
+  .counter {
+    color: white;
+  }
+}
+
+.singleValueFilterDisabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.spinnerCounter {
+  stroke: color(black);
+  width: 2rem;
+}
+
+.multiValueFilter {
+  padding: 0 1.5rem;
+  height: 3.7rem;
+  background-color: color(white);
+  border: 1px solid color(blue);
+  border-radius: 1.85rem;
+  transition-duration: $transitionDuration;
+  transition-property: background-color;
+
+  &:hover {
+    border-color: color(black);
+  }
+
+  .iconSearch {
+    margin-right: 0.6rem;
+    width: 1.3rem;
+    fill: color(black);
+  }
+}
+
+.multiValueFilterActive {
+  background-color: color(blue);
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+
+  &:hover {
+    border-color: color(blue);
+  }
+}
